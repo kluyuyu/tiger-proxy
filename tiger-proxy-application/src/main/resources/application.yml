@@ -1,0 +1,47 @@
+proxy:
+  frontendPort: 3309
+  characterEncoding: utf8
+  frontendSchema: cater
+  executor: 256
+  backendConnectionType: bio
+  backendPoolMaxActive : 64
+  backendPoolInitIdle : 16
+  isMergeResults: true
+
+
+users:
+  - username: root
+    password: root
+  - username: catBug
+    password: 123456
+
+
+tables:
+  - name: user
+    shareColumn: id
+    shareRule: hashCode
+    isGlobal: true
+  - name: ordering
+    shareColumn: id
+    shareRule: hashCode
+  - name: goods
+    shareColumn: id
+    shareRule: hashCode
+
+dataSources:
+  - index : 0
+    host : 127.0.0.1
+    port : 3306
+    schema : proxy0
+    username : root
+    password : root
+
+  - index : 1
+    host : 127.0.0.1
+    port : 3306
+    schema : proxy1
+    username : root
+    password : root
+
+
+
